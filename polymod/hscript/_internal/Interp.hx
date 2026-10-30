@@ -3037,7 +3037,7 @@ class Interp
         // We'll be setting a local variable that's the same as the switch value.
         // This is a wildcard, so it's automatically a match.
         // Enum array constructor don't throw an error for this, so we check to see if we're in an enum.
-        if (!checkArrayDecl(valExpr))
+        if (valExpr != null && !checkArrayDecl(valExpr))
         {
           error(ECustom('Cannot bind matched tuple to variable "$ident", use "_" instead'));
           return false;
